@@ -20,5 +20,5 @@ if ($template_file != false and is_file($template_file)) {
     include($template_file);
 }
 if (!$items and is_admin()) {
-    print notif("Click here to edit Twitter feed");
+    print lnotif("Click here to edit Twitter feed");
 }

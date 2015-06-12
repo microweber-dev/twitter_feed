@@ -11,6 +11,24 @@ function twitter_feed_get_items($keyword = false, $results_count = 5)
     $oauth_access_token_secret = get_option('access_token_secret', 'twitter_feed');
     $consumer_key = get_option('consumer_key', 'twitter_feed');
     $consumer_secret = get_option('consumer_secret', 'twitter_feed');
+	
+	if($oauth_access_token == false){
+	$oauth_access_token  = 	"220111598-87eLa7MgXZmd7YeRSkenTSVxhZikok61PXMKZFti";
+	}
+	
+	if($oauth_access_token_secret == false){
+	$oauth_access_token_secret  = 	"KsDrxrxoGqVVK0ethvcTTrV58RBH3WUjnPeI616fnxIFS";
+	}
+
+	if($consumer_key == false){
+	$consumer_key  = 	"WgDmyOjMgX1N7RhcLpQqzUrtR";
+	}
+
+
+	if($consumer_secret == false){
+	$consumer_secret  = 	"0e8PlzIeKlmGGyH1ajS2Ggaw0anPTX23p3gp2WqZ0PCNxkYYX1";
+	}
+
 
     if (!$oauth_access_token || !$oauth_access_token_secret || !$consumer_key || !$consumer_secret) {
         return false;
@@ -42,7 +60,7 @@ function twitter_feed_get_items($keyword = false, $results_count = 5)
     $response = $twitter->setGetfield($getfield)
         ->buildOauth($url, $requestMethod)
         ->performRequest();
- 
+
 
     $items = json_decode($response, true);
     $return = array();
